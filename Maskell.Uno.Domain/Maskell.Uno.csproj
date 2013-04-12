@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D06E1303-08AE-49A5-AC92-F6D6A327B9EE}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Maskell.Uno</RootNamespace>
+    <AssemblyName>Maskell.Uno</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Autofac">
+      <HintPath>..\packages\Autofac.2.6.3.862\lib\NET40\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Configuration">
+      <HintPath>..\packages\Autofac.2.6.3.862\lib\NET40\Autofac.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CardActions\WildDrawFourCardAction.cs" />
+    <Compile Include="CardActions\WildCardAction.cs" />
+    <Compile Include="CardActions\SkipCardAction.cs" />
+    <Compile Include="CardActions\ReverseCardAction.cs" />
+    <Compile Include="CardActions\NumberCardAction.cs" />
+    <Compile Include="CardActions\DrawTwoCardAction.cs" />
+    <Compile Include="CardRuleValidators\BaseCardRuleValidator.cs" />
+    <Compile Include="CardRuleValidators\WildDrawFourCardRuleValidator.cs" />
+    <Compile Include="CardRuleValidators\WildCardRuleValidator.cs" />
+    <Compile Include="CardRuleValidators\SkipCardRuleValidator.cs" />
+    <Compile Include="CardRuleValidators\ReverseCardRuleValidator.cs" />
+    <Compile Include="CardRuleValidators\NumberCardRuleValidator.cs" />
+    <Compile Include="Cards\CardExtensions.cs" />
+    <Compile Include="Deck.cs" />
+    <Compile Include="Interfaces\ICardAction.cs" />
+    <Compile Include="Interfaces\ICardRuleValidator.cs" />
+    <Compile Include="PlayerCardEventArgs.cs" />
+    <Compile Include="DiscardPile.cs" />
+    <Compile Include="Game.cs" />
+    <Compile Include="Hand.cs" />
+    <Compile Include="Helpers\AutofacHelper.cs" />
+    <Compile Include="BaseCard.cs" />
+    <Compile Include="Cards\Wild.cs" />
+    <Compile Include="Cards\WildDrawFour.cs" />
+    <Compile Include="Cards\DrawTwo.cs" />
+    <Compile Include="Cards\Skip.cs" />
+    <Compile Include="Enumerators.cs" />
+    <Compile Include="Cards\Number.cs" />
+    <Compile Include="Helpers\DeckHelper.cs" />
+    <Compile Include="Interfaces\ICard.cs" />
+    <Compile Include="Interfaces\IDeck.cs" />
+    <Compile Include="Interfaces\IDiscardPile.cs" />
+    <Compile Include="Interfaces\IGame.cs" />
+    <Compile Include="Interfaces\IHand.cs" />
+    <Compile Include="Interfaces\IPlayer.cs" />
+    <Compile Include="Player.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Cards\Reverse.cs" />
+    <Compile Include="CardValidators\Interfaces\ICardColourValidator.cs" />
+    <Compile Include="CardValidators\WildCardColourValidator.cs" />
+    <Compile Include="CardValidators\ColouredCardColourValidator.cs" />
+    <Compile Include="Rules\CardRuleEngine.cs" />
+    <Compile Include="Rules\CardRuleResult.cs" />
+    <Compile Include="CardRuleValidators\DrawTwoCardRuleValidator.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Scripts\jquery-1.6.4-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.6.4.js" />
+    <Content Include="Scripts\jquery-1.6.4.min.js" />
+    <Content Include="Scripts\jquery.signalR-1.0.1.js" />
+    <Content Include="Scripts\jquery.signalR-1.0.1.min.js" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
