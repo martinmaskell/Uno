@@ -68,7 +68,7 @@
     <Compile Include="DiscardPile.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="Hand.cs" />
-    <Compile Include="Helpers\AutofacHelper.cs" />
+    <Compile Include="Helpers\AutofacResolver.cs" />
     <Compile Include="BaseCard.cs" />
     <Compile Include="Cards\Wild.cs" />
     <Compile Include="Cards\WildDrawFour.cs" />

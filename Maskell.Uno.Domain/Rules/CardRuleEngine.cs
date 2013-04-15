@@ -24,7 +24,7 @@ namespace Maskell.Uno.Rules
 		public CardRuleResult Process()
 		{
 			// Apply Validation Rules for the Current Card
-			var result = AutofacHelper.Container.Resolve<ICardRuleValidator>(new NamedParameter("cardType", Card.GetType())).Validate(Game, Player, Card);
+			var result = AutofacResolver.Container.Resolve<ICardRuleValidator>(new NamedParameter("cardType", Card.GetType())).Validate(Game, Player, Card);
 
 			if (!result)
 			{
@@ -32,7 +32,7 @@ namespace Maskell.Uno.Rules
 			}
 
             // Apply Card Actions for the Current Card
-            AutofacHelper.Container.Resolve<ICardAction>(new NamedParameter("cardType", Card.GetType())).Process(Game);
+            AutofacResolver.Container.Resolve<ICardAction>(new NamedParameter("cardType", Card.GetType())).Process(Game);
 
             return new CardRuleResult(CardResultResultState.Success, null);
 		}

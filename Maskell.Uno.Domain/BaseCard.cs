@@ -40,7 +40,7 @@ namespace Maskell.Uno
 
 		private CardColour ValidateCardColour(CardColour colour)
 		{
-			return AutofacHelper.Container.Resolve<ICardColourValidator>(new NamedParameter("cardType", GetType())).Validate(colour);
+			return AutofacResolver.Container.Resolve<ICardColourValidator>(new NamedParameter("cardType", GetType())).Validate(colour);
 		}
 
 		public ICard Clone()

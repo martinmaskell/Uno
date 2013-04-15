@@ -10,26 +10,22 @@ using Maskell.Uno.Interfaces;
 
 namespace Maskell.Uno.Helpers
 {
-	public static class AutofacHelper
+	public static class AutofacResolver
 	{
-		private static IContainer _container;
-		public static IContainer Container
-		{
-			get
-			{
-				if (_container == null)
-				{
-					var builder = new ContainerBuilder();
-					RegisterCardColourValidators(builder);
-					RegisterCardRuleValidators(builder);
-				    RegisterCardActions(builder);
+	    public static IContainer Container { get; private set; }
 
-					_container = builder.Build();
-				}
+	    public static void Init()
+        {
+            if (Container != null)
+                return;
 
-				return _container;
-			}
-		}
+            var builder = new ContainerBuilder();
+            RegisterCardColourValidators(builder);
+            RegisterCardRuleValidators(builder);
+            RegisterCardActions(builder);
+
+            Container = builder.Build();
+        }
 
 	    private static void RegisterCardActions(ContainerBuilder builder)
 	    {
