@@ -237,6 +237,9 @@ namespace Maskell.Uno
 		{
 			CurrentPlayerIndex = 0;
 			SetupGameEvents();
+
+	        var card = DrawPile.Pop(null);
+	        DiscardPile.Push(card);
 		}
 
 	    private void SetupGameEvents()

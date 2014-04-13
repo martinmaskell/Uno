@@ -223,5 +223,17 @@ namespace Maskell.Uno.Tests
 
 			Assert.AreEqual(firstPlayer.ID, currentPlayer.ID);
 		}
-	}
+
+        [Test]
+        public void WhenAGameIsStarted_AndHasValidPlayers_TheDiscardPileHasOneCard()
+        {
+            var game = Game.New();
+            game.Join("Player1");
+            game.Join("Player2");
+            game.Start();
+
+            Assert.AreEqual(1, game.DiscardPile.NumberOfCardsInDeck);
+        }
+
+    }
 }
